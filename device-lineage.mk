@@ -37,6 +37,9 @@ include vendor/google/faceunlock/device.mk
 # PixelParts
 include packages/apps/PixelParts/device.mk
 
+# PowerShare
+include hardware/google/pixel/powershare/device.mk
+
 # Build necessary packages for vendor
 
 # Sigma Flags
