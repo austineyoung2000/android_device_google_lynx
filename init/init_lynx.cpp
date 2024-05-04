@@ -33,7 +33,7 @@ void OverrideProperty(const char* name, const char* value) {
  * after the original property has been set.
  */
 void vendor_load_properties() {
-    OverrideProperty("ro.rising.chipset", "Google Tensor G2");
+    OverrideProperty("ro.rising.chipset", "Google Tensor 2");
     OverrideProperty("ro.rising.maintainer", "EliteDarkKaiser");
     OverrideProperty("service.adb.root", "1");
     OverrideProperty("ro.adb.secure", "0");
