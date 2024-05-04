@@ -33,6 +33,9 @@ $(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/lynx/de
 $(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/WallpapersLynx.mk)
 
+ Use libc variant by default
+PRODUCT_USE_SCUDO := true
+
 DEVICE_PACKAGE_OVERLAYS += device/google/lynx/lynx/overlay
 
 include device/google/lynx/audio/lynx/audio-tables.mk
