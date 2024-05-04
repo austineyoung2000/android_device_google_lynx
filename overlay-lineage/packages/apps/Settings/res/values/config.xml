@@ -17,4 +17,20 @@
 <resources>
     <!-- Whether to show Smooth Display feature in Settings Options -->
     <bool name="config_show_smooth_display">true</bool>
+    
+    <!-- SettingsGoogle -->
+    <bool name="config_adaptive_alert_vibration_enabled">true</bool>
+    <bool name="config_battery_first_use_date_enabled">true</bool>
+    <bool name="config_connectivity_helper_call_quality_default_value">true</bool>
+    <bool name="config_connectivity_helper_d2d_default_value">true</bool>
+    <bool name="config_show_connectivity_helper_call_quality">true</bool>
+    <bool name="config_show_connectivity_helper_d2d">true</bool>
+    <bool name="config_show_reverse_charging">true</bool>
+    <bool name="config_show_touch_sensitivity">true</bool>
+    <bool name="config_clear_calling_enabled">true</bool>
+    
+    <!-- udfps_lottie_ controls -->
+    <dimen name="udfps_lottie_translate_y">16776716.000000dp</dimen> 
+    <dimen name="face_enroll_intro_illustration_margin_bottom">16777201.000000dp</dimen> 
+    <dimen name="face_preview_scale">0.75</dimen>
 </resources>
