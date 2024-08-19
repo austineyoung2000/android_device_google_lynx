@@ -18,9 +18,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
 
-# HBM
-PRODUCT_PACKAGES += \
-    HbmSVManagerOverlayLynx
+# Face Unlock
+-include vendor/google/faceunlock/device.mk
+
+# PixelParts
+-include packages/apps/PixelParts/device.mk
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/google/lynx-kernel/Image.lz4
