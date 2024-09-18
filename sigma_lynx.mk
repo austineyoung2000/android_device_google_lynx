@@ -16,7 +16,7 @@ $(call inherit-product, device/google/lynx/device-lineage.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 7a
-PRODUCT_NAME := lineage_lynx
+PRODUCT_NAME := signa_lynx
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400

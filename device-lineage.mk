@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Disable Artifact Requirements
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
@@ -28,7 +31,24 @@ TARGET_PREBUILT_KERNEL := device/google/lynx-kernel/Image.lz4
 # wireless_charger HAL service
 include device/google/gs-common/wireless_charger/wireless_charger.mk
 
+# Face Unlock
+include vendor/google/faceunlock/device.mk
+
+# PixelParts
+include packages/apps/PixelParts/device.mk
+
 # Build necessary packages for vendor
+
+# Sigma Flags
+SIGMA_BUILD_TYPE := OFFICIAL
+SIGMA_MAINTAINER := EliteDarkKaiser
+TARGET_INCLUDE_MATLOG := true
+TARGET_EXCLUDES_AUDIOFX := false
+TARGET_DEFAULT_ADB_ENABLED = true
+TARGET_HAS_UDFPS := true
+TARGET_ENABLE_BLUR := true
+
+WITH_GMS := true
 
 # Codec2
 PRODUCT_PACKAGES += \
