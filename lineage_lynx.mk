@@ -36,6 +36,9 @@ TARGET_PREBUILT_GOOGLE_CAMERA := true
 # Lawnchair Prebuilt
 TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
 
+# disable/enable blur support, default is false
+TARGET_ENABLE_BLUR := true
+
 RISING_MAINTAINER=EliteDarkKaiser
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
