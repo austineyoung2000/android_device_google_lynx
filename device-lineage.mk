@@ -24,10 +24,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
 
-# HBM
-PRODUCT_PACKAGES += \
-    HbmSVManagerOverlayLynx
-
 # Kernel
 TARGET_PREBUILT_KERNEL := device/google/lynx-kernel/Image.lz4
 
