@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Scudo
+PRODUCT_USE_SCUDO := true
+
 # Disable Artifact Requirements
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 
