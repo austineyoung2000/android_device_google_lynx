@@ -19,7 +19,7 @@ PRODUCT_MODEL := Pixel 7a
 PRODUCT_NAME := lineage_lynx
 
 # Ship Basic Call Recorder
-$(call inherit-product, vendor/bcr/bcr.mk)
+TARGET_PREBUILT_BCR := true
 
 # Addons
 TARGET_HAS_UDFPS := true
@@ -40,9 +40,6 @@ TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
 TARGET_ENABLE_BLUR := true
 
 RISING_MAINTAINER=EliteDarkKaiser
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    RISING_CHIPSET="Google Tensor G2" \
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2400
