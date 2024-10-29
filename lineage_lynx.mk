@@ -36,6 +36,9 @@ TARGET_DEFAULT_PIXEL_LAUNCHER := true
 # Ship Google Camera
 TARGET_PREBUILT_GOOGLE_CAMERA := true
 
+# disable/enable blur support, default is false
+TARGET_ENABLE_BLUR := true
+
 RISING_MAINTAINER=EliteDarkKaiser
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
