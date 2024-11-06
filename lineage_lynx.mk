@@ -33,6 +33,9 @@ WITH_GMS := true
 # Ship Pixel Launcher
 TARGET_DEFAULT_PIXEL_LAUNCHER := true
 
+# Ship LawnChair 
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+
 # Ship Google Camera
 TARGET_PREBUILT_GOOGLE_CAMERA := true
 
