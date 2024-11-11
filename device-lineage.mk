@@ -17,9 +17,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
 
-# HBM
-PRODUCT_PACKAGES += \
-    HbmSVManagerOverlayLynx
+# PixelParts
+-include packages/apps/PixelParts/device.mk
 
 # IWLAN
 PRODUCT_PACKAGES += \
