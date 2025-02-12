@@ -20,6 +20,9 @@ PRODUCT_PACKAGES += \
 # PixelParts
 -include packages/apps/PixelParts/device.mk
 
+# PixelSupport
+include device/google/gs-common/pixelsupport/pixelsupport.mk
+
 # IWLAN
 PRODUCT_PACKAGES += \
     Iwlan
