@@ -1747,6 +1747,12 @@
     },
     {
       "PowerHint": "GAME",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "572000"
+    },
+    {
+      "PowerHint": "GAME",
       "Node": "CPUDVFSHeadroom",
       "Duration": 0,
       "Value": "1100"
