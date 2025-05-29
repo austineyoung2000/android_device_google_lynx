@@ -20,9 +20,6 @@ PRODUCT_PACKAGES += \
 # PixelParts
 -include packages/apps/PixelParts/device.mk
 
-# Viper4Android FX
--include packages/apps/ViPER4AndroidFX/config.mk
-
 # Face Unlock
 -include vendor/google/faceunlock/config.mk
 
