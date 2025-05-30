@@ -30,6 +30,9 @@ TARGET_HAS_UDFPS := true
 # Gms 
 WITH_GMS := true
 
+#Ship Pixel Overlays
+WITH_PIXEL_OVERLAYS := true
+
 # Ship Pixel Launcher
 TARGET_DEFAULT_PIXEL_LAUNCHER := true
 
