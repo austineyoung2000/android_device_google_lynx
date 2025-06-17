@@ -20,6 +20,12 @@ PRODUCT_PACKAGES += \
 # PixelParts
 -include packages/apps/PixelParts/device.mk
 
+# Enables Google Face Unlock (GFU)
+TARGET_SUPPORTS_GFU := true
+
+# Device Supports Face Unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # IWLAN
 PRODUCT_PACKAGES += \
     Iwlan
