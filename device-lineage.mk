@@ -20,11 +20,11 @@ PRODUCT_PACKAGES += \
 # PixelParts
 -include packages/apps/PixelParts/device.mk
 
-# Face Unlock
--include vendor/google/faceunlock/config.mk
-
 # PixelSupport
 include device/google/gs-common/pixelsupport/pixelsupport.mk
+
+# Ship Google Face Unlock ( GFU )
+TARGET_SUPPORTS_GFU := true
 
 # IWLAN
 PRODUCT_PACKAGES += \
