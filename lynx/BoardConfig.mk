@@ -30,6 +30,7 @@ endif
 
 BOARD_USES_GENERIC_AUDIO := true
 USES_DEVICE_GOOGLE_LYNX := true
+$(call soong_config_set_bool,prebuilts_wlan,USES_DEVICE_GOOGLE_LYNX,$(USES_DEVICE_GOOGLE_LYNX))
 
 # Enable load module in parallel
 BOARD_BOOTCONFIG += androidboot.load_modules_parallel=true
@@ -39,17 +40,9 @@ BOARD_KERNEL_CMDLINE += fips140.load_sequential=1
 BOARD_KERNEL_CMDLINE += exynos_drm.load_sequential=1
 
 include device/google/gs201/BoardConfig-common.mk
--include vendor/google_devices/gs201/prebuilts/BoardConfigVendor.mk
 include device/google/gs-common/check_current_prebuilt/check_current_prebuilt.mk
--include vendor/google_devices/lynx/proprietary/BoardConfigVendor.mk
 include device/google/lynx/sepolicy/lynx-sepolicy.mk
 include device/google/gs201/wifi/qcom/BoardConfig-wifi.mk
-
-ifneq (,$(RELEASE_ETM_IN_USERDEBUG_ENG))
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
--include device/google/common/etm/BoardUserdebugModules.mk
-endif
-endif
 
 DEVICE_PATH := device/google/lynx
 VENDOR_PATH := vendor/google/lynx

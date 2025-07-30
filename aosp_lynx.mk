@@ -28,6 +28,3 @@ PRODUCT_DEVICE := lynx
 PRODUCT_MODEL := AOSP on Lynx
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Google
-
-DEVICE_MANIFEST_FILE := \
-	device/google/lynx/manifest.xml

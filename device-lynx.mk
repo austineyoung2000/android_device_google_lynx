@@ -19,13 +19,6 @@ TARGET_LINUX_KERNEL_VERSION := $(RELEASE_KERNEL_LYNX_VERSION)
 TARGET_KERNEL_DIR ?= $(RELEASE_KERNEL_LYNX_DIR)
 TARGET_BOARD_KERNEL_HEADERS ?= $(RELEASE_KERNEL_LYNX_DIR)/kernel-headers
 
-$(call inherit-product-if-exists, vendor/google_devices/lynx/prebuilts/device-vendor-lynx.mk)
-$(call inherit-product-if-exists, vendor/google_devices/gs201/prebuilts/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/gs201/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/lynx/device-vendor-lynx.mk)
-$(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/google_devices/lynx/proprietary/WallpapersLynx.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/google/lynx/lynx/overlay
 
 include device/google/lynx/audio/lynx/audio-tables.mk
@@ -157,15 +150,6 @@ include device/google/lynx/bluetooth/qti_default.mk
 # 	ro.hardware.keystore=software \
 # 	ro.hardware.gatekeeper=software
 
-# Fingerprint HAL
-GOODIX_CONFIG_BUILD_VERSION := g7_trusty
-$(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_common.mk)
-ifeq ($(filter factory%, $(TARGET_PRODUCT)),)
-$(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_shipping.mk)
-else
-$(call inherit-product-if-exists, vendor/goodix/udfps/configuration/udfps_factory.mk)
-endif
-
 # Vibrator HAL
 $(call soong_config_set,haptics,kernel_ver,v$(subst .,_,$(TARGET_LINUX_KERNEL_VERSION)))
 ADAPTIVE_HAPTICS_FEATURE := adaptive_haptics_v1
@@ -183,36 +167,22 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio.hapticgenerator.distortion.output.gain=0.29
 
-# Trusty liboemcrypto.so
-PRODUCT_SOONG_NAMESPACES += vendor/google_devices/lynx/prebuilts
-
 # Location
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_COPY_FILES += \
+    device/google/lynx/location/lhd_user.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
+    device/google/lynx/location/scd_user.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf
+ifneq (,$(filter 6.1, $(TARGET_LINUX_KERNEL_VERSION)))
     PRODUCT_COPY_FILES += \
-        device/google/lynx/location/lhd.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-        device/google/lynx/location/scd.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf
-    ifneq (,$(filter 6.1, $(TARGET_LINUX_KERNEL_VERSION)))
-        PRODUCT_COPY_FILES += \
-            device/google/lynx/location/gps.6.1.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-    else
-        PRODUCT_COPY_FILES += \
-            device/google/lynx/location/gps.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-    endif
+        device/google/lynx/location/gps_user.6.1.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 else
     PRODUCT_COPY_FILES += \
-        device/google/lynx/location/lhd_user.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/lhd.conf \
-        device/google/lynx/location/scd_user.conf.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/scd.conf
-    ifneq (,$(filter 6.1, $(TARGET_LINUX_KERNEL_VERSION)))
-        PRODUCT_COPY_FILES += \
-            device/google/lynx/location/gps_user.6.1.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-    else
-        PRODUCT_COPY_FILES += \
-            device/google/lynx/location/gps_user.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
-    endif
+        device/google/lynx/location/gps_user.xml.l10:$(TARGET_COPY_OUT_VENDOR)/etc/gnss/gps.xml
 endif
 
 # Wifi HAL
-PRODUCT_SOONG_NAMESPACES += hardware/qcom/wlan/wcn6740
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/wlan \
+    hardware/qcom/wlan/wcn6740
 
 # DCK properties based on target
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -326,12 +296,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.audio.cca.enabled=false
 
-# eng specific
-ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-    PRODUCT_COPY_FILES += \
-        device/google/gs201/init.hardware.wlc.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.wlc.rc
-endif
-
 # SKU specific RROs
 PRODUCT_PACKAGES += \
     SettingsOverlayG82U8 \
@@ -352,10 +316,3 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Raven: 0x410B
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.device_id.product_id=16651
-
-# ETM
-ifneq (,$(RELEASE_ETM_IN_USERDEBUG_ENG))
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-$(call inherit-product-if-exists, device/google/common/etm/device-userdebug-modules.mk)
-endif
-endif
