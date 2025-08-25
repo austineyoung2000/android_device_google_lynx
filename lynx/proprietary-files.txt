@@ -3,6 +3,7 @@
 # product partition
 
 # AiAi
+product/priv-app/AICorePrebuilt-aicore_20250130.00_RC01/AICorePrebuilt-aicore_20250130.00_RC01.apk;PRESIGNED
 product/priv-app/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02.apk;PRESIGNED
 product/priv-app/DevicePersonalizationPrebuiltPixel2022-bfinal_aiai_20250217.00_RC08/DevicePersonalizationPrebuiltPixel2022-bfinal_aiai_20250217.00_RC08.apk;PRESIGNED
 
