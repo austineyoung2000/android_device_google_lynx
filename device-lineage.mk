@@ -17,8 +17,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
 
-# PixelParts
--include packages/apps/PixelParts/device.mk
+# HBM
+PRODUCT_PACKAGES += \
+    HbmSVManagerOverlayLynx
 
 # Enables Google Face Unlock (GFU)
 TARGET_SUPPORTS_GFU := true
